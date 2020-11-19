@@ -1,37 +1,51 @@
 import React, { Component } from 'react';
 import './App.css';
-
-import UserInput from './UserInput/UserInput';
-import UserOutput from './UserOutput/UserOutput';
+import Person from './Person/Person';
 
 class App extends Component {
   state={
-    username: 'Super hero'
+    persons: [
+      {name:'hieu', age: 28},
+      {name:'huyen', age: 18},
+      {name:'hoa', age: 38},
+    ],
+    showPersons: false
   }
 
-  userChangedHandler = (event) => {
-    this.setState({
-      username: event.target.value
-    })
+  togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({showPersons: !doesShow});
   }
+
 
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    }
       return (
         <div className="App">
-          <ol>
-            <li>flkjdsklfjsklfjkls</li>
-            <li>flkjdsklfjsklfjkls</li>
-            <li>flkjdsklfjsklfjkls</li>
-            <li>flkjdsklfjsklfjkls</li>
-            <li>flkjdsklfjsklfjkls</li>
-            <li>flkjdsklfjsklfjkls</li>
-          </ol>
-          <UserInput changed={this.userChangedHandler}
-            currentName={this.state.username}
-          />
-          <UserOutput userName={this.state.username} />
-          <UserOutput userName={this.state.username} />
-          <UserOutput userName="Tu" />
+         <h1>Hi, i'm Hieu</h1>
+         <p>I'm studying React</p>
+         <button
+         style={style}
+         onClick={this.togglePersonsHandler}
+         >
+         Toggle persons  
+         </button>
+         {
+          this.state.showPersons === true ? 
+          <div>
+         <Person name={this.state.persons[0].name}
+         age={this.state.persons[0].age}
+         />
+         <Person name={this.state.persons[1].name}
+         age={this.state.persons[1].age}
+         />
+         </div> : null}
         </div> 
       );
     }
