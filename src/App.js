@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
-import styled from 'styled-components';
-// import Radium, { StyleRoot } from 'radium';
 
-const StyleButton = styled.button`
-    background-color: ${props => props.alt ? 'red' : '#ccc'};
-    padding: 16px;
-    &:hover {
-      background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
-      color: black;
-    }
-`;
 
 class App extends Component
 {
@@ -52,9 +42,6 @@ class App extends Component
   }
 
   render() {
-    // const style = {
-      
-    // }
     let persons = null;
 
     if(this.state.showPersons) {
@@ -71,24 +58,17 @@ class App extends Component
           })}
         </div>
       );
-      // style.backgroundColor = 'red';
-      // style[':hover'] = {
-      //   backgroundColor: 'salmon',
-      //   color: 'black'
-      // }
     }
     
     return (
-      // <StyleRoot>
-        <div className="App">
+        <div className={classes.App}>
           <h1>Hi, i'm Hieu</h1>
           <p>I'm studying React</p>
-          <StyleButton alt={this.state.showPersons}
+          <button className={classes.Button}
             onClick={this.togglePersonHandler}
-          >Show person</StyleButton>
+          >Show person</button>
           {persons}
         </div>
-      /* </StyleRoot> */
     )
   }
 }
