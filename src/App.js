@@ -43,6 +43,7 @@ class App extends Component
 
   render() {
     let persons = null;
+    let btnClass = '';
 
     if(this.state.showPersons) {
       persons = (
@@ -53,18 +54,20 @@ class App extends Component
               age={person.age}
               key={person.id}
               click={() => this.deletePerson(index)}
-              changed={() => this.updateInput(event, person.id)}
+              changed={(event) => this.updateInput(event, person.id)}
             />
           })}
         </div>
       );
+
+      btnClass = classes.Red;
     }
     
     return (
         <div className={classes.App}>
           <h1>Hi, i'm Hieu</h1>
           <p>I'm studying React</p>
-          <button className={classes.Button}
+          <button className={btnClass}
             onClick={this.togglePersonHandler}
           >Show person</button>
           {persons}
