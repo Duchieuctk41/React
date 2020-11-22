@@ -7,6 +7,10 @@ import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component
 {
+  constructor (props) {
+    super(props);
+    console.log('[App js] constructor');
+  }
   state = {
     persons: [
       {id: 'a', name: 'Hieu', age: 18},
@@ -15,6 +19,19 @@ class App extends Component
     ],
     showPersons: false
   }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props);
+    return state;
+  };
+
+  componentWillMount() {
+    console.log('[App.js] componentWillMount');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount');
+  };
 
   togglePersonHandler = () => {
     const doesShow = this.state.showPersons;
@@ -42,6 +59,7 @@ class App extends Component
   };
 
   render() {
+    console.log('[App.js] render');
     let persons = null;
 
     if(this.state.showPersons) {
@@ -57,6 +75,7 @@ class App extends Component
     return (
         <div className={classes.App}>
           <Cockpit 
+          title={this.props.appTitle}
           showPersons={this.state.showPersons}
           persons={this.state.persons}
           clicked={this.togglePersonHandler}
