@@ -5,6 +5,8 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 import withClass from '../hoc/withClass';
 import Aux from '../hoc/Aux';
+import Protypes from 'prop-types';
+import Person from '../components/Persons/Person/Person';
 
 
 class App extends Component
@@ -95,6 +97,13 @@ class App extends Component
         </Aux>
     )
   }
+}
+
+Person.propTypes = {
+  click: Protypes.func,
+  name: Protypes.string,
+  age: Protypes.number,
+  changed: Protypes.func
 }
 
 export default withClass(App, classes.App);
