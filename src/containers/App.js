@@ -20,7 +20,8 @@ class App extends Component
       {id: 'c', name: 'Tu', age: 80}
     ],
     showPersons: false,
-    showCockpit: true
+    showCockpit: true,
+    chanCounter: 0
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -58,7 +59,12 @@ class App extends Component
 
     persons[personIndex] = person;
 
-    this.setState({persons: persons});
+    this.setState((prevStage, props) => {
+      return {
+        persons: persons,
+        changeCounter: prevStage.chanCounter + 1
+      };
+    });
   };
 
   render() {
