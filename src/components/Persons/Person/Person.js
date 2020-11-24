@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import withClass from '../../../hoc/withClass';
 import classes from './Person.css';
 
 import Aux from '../../../hoc/Aux';
@@ -13,10 +14,10 @@ class Person extends Component {
                 onClick={this.props.click}>Hi, i'm {this.props.name}, i'm {this.props.age} years old</p>
                 <input 
                     key="i2"
-                type="text" onChange={this.props.changed}></input>
+                type="text" onChange={this.props.changed} value={this.props.name}></input>
             </Aux>
         )
     }
 }
 
-export default Person;
+export default withClass(Person, classes.Person);
