@@ -1,11 +1,12 @@
 import React from 'react';
 import Aux from '../../hoc/Aux';
+import Burger from '../../components/Burger/Burger';
 
 const burgerBuilder = () => {
     return (
         <Aux>
-        <div>Burger</div>
-        <div>Burger control</div>
+            <Burger />
+            <div>Burger control</div>
         </Aux>
     );
 } 
