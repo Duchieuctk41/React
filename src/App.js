@@ -4,15 +4,15 @@ import Burger from './containers/BurgerBuilder/BurgerBuilder';
 
 class App extends Component
 {
-  render() {
-    return (
-        <div>
-          <Layout>
-            <Burger />
-          </Layout>
-        </div>
-    );
-}
+    render() {
+      return (
+          <div>
+            <Layout>
+              <Burger />
+            </Layout>
+          </div>
+      );
+  }
 }
 
-export default App;
+export default App; 
