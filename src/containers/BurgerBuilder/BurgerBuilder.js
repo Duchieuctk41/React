@@ -127,4 +127,3 @@ class BurgerBuilder extends Component {
 }
 
 export default BurgerBuilder;
-

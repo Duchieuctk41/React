@@ -44,4 +44,3 @@ BurgerIngredient.propTypes = {
 
 
 export default BurgerIngredient;
-
