@@ -6,7 +6,7 @@ const post = (props) => (
     <article className={classes.Post}>
         <h1>{props.title}</h1>
         <div className={classes.Info}>
-            <div className="Author">Author</div>
+            <div className="Author">{props.author}</div>
         </div>
     </article>
 );
